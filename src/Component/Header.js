@@ -1,14 +1,50 @@
-import React from 'react'
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../utils/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice';
+import { LOGO } from '../utils/constant';
 
 const Header = () => {
-  return (
-    <div className='bg-gradient-to-b'>
+    const dispatch=useDispatch()
+    const user=useSelector((store)=>store.user)
+    const nave=useNavigate()
+
+     useEffect(()=>{
+     const unSubscribe=onAuthStateChanged(auth,(user)=>{
+        if(user){
+            const{uid,email,displayName}=user;
+            dispatch(addUser({uid:uid,email:email,displayName:displayName}))
+            nave('/browser')
+        }else{
+            dispatch(removeUser())
+            nave('/')
+        }
+    })
+  //unsubscribe when component umoount
+    return () =>unSubscribe()
+        },[])
+    const   handleSignout=()=>{
+    signOut(auth).then(() => {
+        // Sign-out successful.
+         nave("/")
+      }).catch((error) => {
+        // An error happened.
+      });
+    }
+
+    return <div className='absolute w-screen bg-gradient-to-b from-black  px-8 py-2 z-10 flex justify-between'>
+     <img className='w-44'  src={LOGO}   
+             alt='logo'></img>
+
+    {user && <div>
+               <img className="w-12 h-12" alt='usericon' src="https://occ-0-4994-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229"
+    />
     
-    
-     <img src=" https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2026-04-16/consent/87b6a5c0-0104-4e96-a291-092c11350111/019ae4b5-d8fb-7693-90ba-7a61d24a8837/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"></img>
-    
+       <button onClick={handleSignout} className='font-bold text-white '>(sign out)</button>
+       </div>}
     </div>
-  )
 }
 
 export default Header

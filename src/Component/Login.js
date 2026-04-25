@@ -4,6 +4,7 @@ import validate from '../utils/validate'
 import { auth } from '../utils/firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import { BACKGROUNG_IMAGE } from '../utils/constant'
 
 
 const Login = () => {
@@ -28,14 +29,8 @@ const Login = () => {
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    updateProfile(user, {
-        displayName: name.current.value, photoURL: "https://assets.cntraveller.in/photos/625eadcff9b9b60bcf96009e/master/pass/Munsyari.png"
-      }).catch((error) => {
-        // An error occurred
-        navi("/error")
-        // ...
-      });
-   navi('/browser')
+    
+  
              
     })
           
@@ -46,7 +41,7 @@ const Login = () => {
     // Signed up 
     const user = userCredential.user;
     console.log(user);
-    navi('/browser')
+  
     // ...
   })
   .catch((error) => {
@@ -65,7 +60,7 @@ const Login = () => {
     <Header/>
     </div>
     <div className='absolute'>
-    <img src='https://assets.nflxext.com/ffe/siteui/vlv3/ba53094c-3e3b-4789-94a6-baac10310f07/web/IN-en-20260420-TRIFECTA-perspective_52edec47-1b88-414a-bbbe-670f7229d886_large.jpg' alt='fefe'></img>
+    <img src={BACKGROUNG_IMAGE} alt='fefe'></img>
     </div>
     
    

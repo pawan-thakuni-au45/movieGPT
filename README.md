@@ -81,7 +81,10 @@ Register
  -firebase setup
  -deploy
  -created SIGNUP AND SIGNIN ACC
- -created reduxs store with userSlice
+ -created reduxs store with 
+ -signout
+ -fetch movies from TMDB
+ -unsunscribed to the onauthstagechange callback
  ================
 browser
  -header
