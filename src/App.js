@@ -1,12 +1,15 @@
 
+import { Provider } from 'react-redux';
 import './App.css';
 import Body from './Component/Body';
+import { appStore } from './utils/store';
 
 function App() {
   return (
-    <div className="text-red-600 text-bold text-3xl">
+  <Provider store={appStore}>
     <Body/>
-    </div>
+    </Provider>
+  
   );
 }
 

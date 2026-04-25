@@ -75,7 +75,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Register
  -signin
  -signup
- =================
+ -form validation
+ -useRef hook
+ -firebase setup
+ -deploy
+ -created SIGNUP AND SIGNIN ACC
+ -created reduxs store with userSlice
+ ================
 browser
  -header
  -trailer
