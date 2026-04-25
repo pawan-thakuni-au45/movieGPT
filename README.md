@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -91,3 +92,6 @@ browser
  ==Netflix gpt==
    -searchbar.
    -movie suggestion. 
+=======
+# movieGPT
+>>>>>>> bad7ba041ac84b179434380bb654e5aa66d120eb
