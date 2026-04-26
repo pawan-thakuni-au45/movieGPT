@@ -6,20 +6,22 @@ import Videobackground from './Videobackground'
 
 const MainContainer = () => {
 
-    const movie=useSelector((store)=>store.movie?.nowPlayingMovies)
+  const movies=useSelector((store)=>store.movies?.nowPlayingMovies)
+  console.log("movies",movies)
+if(!movies) return;
+console.log("movies",movies)
+  const movie=movies[0]
 
-    if(!movie) return 
+  
 
-    const mainMovie=movie[0]
-    console.log(mainMovie,"main")
-
-    const {original_title,overview}=mainMovie
+  const{original_title,overview}=movie
+    
 
   return (
-    <div className='py-40'>
-        <Videotitle title={original_title} overview={overview} />
-        <Videobackground/>
-        rgrjkgbrjkgnrjgkregrg
+    <div className=' '>
+    <Videotitle title={original_title} overview={overview}/>
+    <Videobackground/>
+    
     </div>
   )
 }
