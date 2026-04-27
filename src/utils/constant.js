@@ -22,3 +22,7 @@ export const SUPPORTED_LANG=[
 
   }
 ]
+
+
+export const GEMINI_KEY ='AIzaSyCkZqyi948DwXRUauuYcUcjui9U1_UOxDI'
+

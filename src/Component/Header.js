@@ -11,6 +11,7 @@ import { changeLang } from '../utils/confifSlice';
 const Header = () => {
     const dispatch=useDispatch()
     const user=useSelector((store)=>store.user)
+      const gptSearch=useSelector((store)=>store.gpt.showGptSearch)
     const nave=useNavigate()
 
      useEffect(()=>{
@@ -50,13 +51,16 @@ const Header = () => {
              alt='logo'></img>
 
     {user && <div className='flex'>
-        <select onChange={handleLanguageChange}>
+        {
+            gptSearch && ( <select onChange={handleLanguageChange}>
         {
             SUPPORTED_LANG.map(opt=><option value={opt.identifire}>{opt.name}</option>)
         }
-        </select>
+        </select>)
+        }
+           
        
-               <button className=' bg-purple-800 px-6 py-2 mx-2 ' onClick={handlegpt}>GPT Search</button>
+               <button className=' bg-purple-800 px-6 py-2 mx-2 ' onClick={handlegpt}>{gptSearch ? "HomePage" : "GPT Search"}</button>
 
                <img className="w-12 h-12" alt='usericon' src="https://occ-0-4994-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229"
     />
