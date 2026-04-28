@@ -64,7 +64,7 @@ const Login = () => {
     </div>
     
    
-    <form onSubmit={(e)=>e.preventDefault()} className='absolute mx-auto w-4/12 mx-auto mt-36 p-12 right-0 left-0 bg-black text-white bg-opacity-70 h-[200]' >
+    <form onSubmit={(e)=>e.preventDefault()} className='absolute mx-auto w-4/12  mt-36 p-12 right-0 left-0 bg-black text-white bg-opacity-70 h-[200] flex flex-col' >
     <h1 className='mb-5'>{user ? "Sign In" : "Sign Up"}</h1>
     { !user &&  
       <input ref={name} type='text' placeholder='Name' className=" bg-gray-600 mb-3 rounded-md py-2"></input>
