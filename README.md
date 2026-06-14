@@ -37,15 +37,14 @@
 - GPT Search Page
 - GPT Search Bar
 - (BONUS) Multi-language Feature in our App)
-- Get Open AI Api Key 
-- Gpt Search API Call
+- Get Gemini  Api Key 
+- Gemini Search API Call
 - fetched gptMoviesSuggestions from TMDB
 - created gptSlice added data
 - Resused Movie List component to make movie suggestion container
-- Memoization
 - Added .env file
 - Adding .env file to gitignore
-- Made our Site Responsive
+
 
 # Features
 - Login/Sign Up
@@ -61,8 +60,19 @@
 - NetflixGPT
     - Search Bar
     - Movie Suggestions
+ 
+ - Access TMDB (THE MOVIE DB)
+    - Login in TMDB.
+    - GO TO edit Profile.
+    - GO TO API SECTION.
+    - Register APP.
+    - API read/access token and API key.
+-google gemini KEY
+  - Use platform
+   - Generate API Key(Vulnerable)
+
 
 
 
 # Project Setup
-- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
+- Before starting the project please add .env file and add TMDB and Gemini KEY into it.
